@@ -12,6 +12,8 @@
   --bg:#0E1013;
   --surface:#16191F;
   --line:#262B33;
+  --aqua:#5FD3F3;
+  --aqua-dim:#2E7E96;
   --gold:#FFD700;
   --silver:#C0C0C0;
   --bronze:#CD7F32;
@@ -64,7 +66,7 @@ body{
   color:var(--muted);
   margin-bottom:20px;
 }
-.eyebrow b{color:var(--red);font-weight:700}
+.eyebrow b{color:var(--aqua);font-weight:700}
 h1{
   font-family:var(--display);
   font-size:clamp(56px,11vw,132px);
@@ -73,7 +75,7 @@ h1{
   text-transform:uppercase;
   margin-bottom:26px;
 }
-h1 em{font-style:normal;color:var(--gold);display:block}
+h1 em{font-style:normal;color:var(--aqua);display:block}
 .lede{
   font-size:clamp(17px,2.2vw,21px);
   max-width:30ch;
@@ -88,7 +90,27 @@ h1 em{font-style:normal;color:var(--gold);display:block}
   border:1px solid var(--line);
   background:rgba(22,25,31,.85);
   backdrop-filter:blur(6px);
+  cursor:pointer;
+  font:inherit;
+  color:inherit;
+  text-align:left;
+  transition:border-color .2s ease;
 }
+.ipbox:hover{border-color:var(--aqua)}
+.ipbox:focus-visible{outline:2px solid var(--aqua);outline-offset:3px}
+.ipbox .cp{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  padding:14px 16px;
+  border-left:1px solid var(--line);
+  display:flex;align-items:center;
+  transition:color .2s ease;
+}
+.ipbox:hover .cp{color:var(--aqua)}
+.ipbox.done .cp{color:var(--aqua)}
 .ipbox .lbl{
   font-family:var(--mono);
   font-size:10px;
@@ -104,7 +126,7 @@ h1 em{font-style:normal;color:var(--gold);display:block}
   font-weight:700;
   font-size:17px;
   padding:14px 20px;
-  color:var(--gold);
+  color:var(--aqua);
   letter-spacing:.02em;
 }
 .meta{
@@ -123,7 +145,7 @@ section{padding:110px 0;border-bottom:1px solid var(--line)}
   font-family:var(--mono);
   font-size:11px;
   letter-spacing:.2em;
-  color:var(--red);
+  color:var(--aqua-dim);
   display:block;
   margin-bottom:14px;
 }
@@ -167,7 +189,7 @@ h2{
 }
 .rule p{color:#9AA0A8;font-size:15.5px;max-width:62ch}
 .rule p b{color:var(--text);font-weight:600}
-.rule.hl h3{color:var(--gold)}
+.rule.hl h3{color:var(--aqua)}
 
 /* flow */
 .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -189,8 +211,8 @@ h2{
   letter-spacing:.02em;
 }
 .step p{font-size:14px;color:var(--muted);line-height:1.55}
-.step:nth-child(1) h4{color:var(--red)}
-.step:nth-child(4) h4{color:var(--gold)}
+.step:nth-child(1) h4{color:var(--aqua-dim)}
+.step:nth-child(4) h4{color:var(--aqua)}
 
 /* no list */
 .nolist{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -218,11 +240,14 @@ h2{
   color:var(--text);
   text-decoration:none;
   transition:all .2s ease;
+  background:none;
+  cursor:pointer;
+  display:inline-block;
 }
-.btn:hover{border-color:var(--gold);color:var(--gold)}
-.btn.primary{background:var(--gold);color:#0E1013;border-color:var(--gold)}
-.btn.primary:hover{background:#FFE44D;border-color:#FFE44D;color:#0E1013}
-.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.btn:hover{border-color:var(--aqua);color:var(--aqua)}
+.btn.primary{background:var(--aqua);color:#0E1013;border-color:var(--aqua)}
+.btn.primary:hover{background:#8AE1FA;border-color:#8AE1FA;color:#0E1013}
+.btn:focus-visible{outline:2px solid var(--aqua);outline-offset:3px}
 
 footer{padding:34px 0;text-align:center}
 footer p{font-family:var(--mono);font-size:11px;color:var(--line);letter-spacing:.14em;text-transform:uppercase}
@@ -255,10 +280,11 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--line);letter-spacing
       <div class="eyebrow">Temporada 1 &nbsp;·&nbsp; <b>en curso</b> &nbsp;·&nbsp; Java 1.21.11</div>
       <h1>El mapa<br>se gana<em>matando</em></h1>
       <p class="lede">Factions sin kits, sin economía y sin pay to win. <strong>Cada kill te da un chunk de territorio enemigo.</strong> Gana la facción que controle más mapa al cerrar la temporada.</p>
-      <div class="ipbox">
-        <div class="lbl">IP</div>
-        <div class="val">179.197.65.19</div>
-      </div>
+      <button class="ipbox" type="button" data-copy="179.197.65.19">
+        <span class="lbl">IP</span>
+        <span class="val">179.197.65.19</span>
+        <span class="cp">Copiar</span>
+      </button>
       <p class="meta">Servidor <span>cracked</span> — entrás con cualquier cuenta &nbsp;·&nbsp; Ping bajo en <span>Latinoamérica</span></p>
     </div>
   </div>
@@ -371,7 +397,7 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--line);letter-spacing
     <p>Entrá, armá tu facción y empezá a pelear por el mapa.</p>
     <div class="btns">
       <a class="btn primary" href="https://discord.gg/5p5uX8Ktf">Entrar al Discord</a>
-      <a class="btn" href="#">IP: 179.197.65.19</a>
+      <button class="btn" type="button" data-copy="179.197.65.19">IP: 179.197.65.19</button>
     </div>
   </div>
 </section>
@@ -381,6 +407,36 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--line);letter-spacing
 </footer>
 
 <script>
+// Copiar la IP al portapapeles
+document.querySelectorAll('[data-copy]').forEach(function(el){
+  el.addEventListener('click', function(){
+    const ip = el.getAttribute('data-copy');
+    const done = function(){
+      const label = el.querySelector('.cp');
+      if(label){
+        el.classList.add('done');
+        label.textContent = 'Copiado';
+        setTimeout(function(){ label.textContent = 'Copiar'; el.classList.remove('done'); }, 1800);
+      } else {
+        const prev = el.textContent;
+        el.textContent = 'IP copiada';
+        setTimeout(function(){ el.textContent = prev; }, 1800);
+      }
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(ip).then(done, fallback);
+    } else { fallback(); }
+    function fallback(){
+      const t = document.createElement('textarea');
+      t.value = ip; t.setAttribute('readonly','');
+      t.style.position = 'fixed'; t.style.top = '-1000px';
+      document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); done(); } catch(e){}
+      document.body.removeChild(t);
+    }
+  });
+});
+
 (function(){
   const c = document.getElementById('grid');
   if(!c) return;
@@ -388,7 +444,7 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--line);letter-spacing
   const ctx = c.getContext('2d');
   const CELL = 34, GAP = 2;
   // Colores de las facciones: oro, plata, bronce, rojo
-  const FACTIONS = ['#FFD700','#C0C0C0','#CD7F32','#D64545'];
+  const FACTIONS = ['#5FD3F3','#2E7E96','#C0C0C0','#D64545'];
   let cols, rows, cells;
 
   function build(){
