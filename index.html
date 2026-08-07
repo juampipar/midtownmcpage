@@ -42,6 +42,7 @@ body{
   min-height:100vh;
   display:flex;
   align-items:center;
+  padding:100px 0;
   border-bottom:1px solid var(--line);
   overflow:hidden;
 }
@@ -84,6 +85,16 @@ h1 em{font-style:normal;color:var(--aqua);display:block}
 }
 .lede strong{color:var(--text);font-weight:600}
 
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:stretch;
+  gap:14px;
+}
+.hero-actions .btn.primary{
+  display:inline-flex;
+  align-items:center;
+}
 .ipbox{
   display:inline-flex;
   align-items:stretch;
@@ -261,8 +272,10 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--line);letter-spacing
 }
 @media (max-width:520px){
   .flow{grid-template-columns:1fr}
+  .hero-actions{width:100%}
   .ipbox{width:100%}
   .ipbox .val{font-size:15px}
+  .hero-actions .btn.primary{width:100%;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){
   #grid{display:none}
@@ -280,11 +293,14 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--line);letter-spacing
       <div class="eyebrow">Temporada 1 &nbsp;·&nbsp; <b>en curso</b> &nbsp;·&nbsp; Java 1.21.11</div>
       <h1>El mapa<br>se gana<em>matando</em></h1>
       <p class="lede">Factions sin kits, sin economía y sin pay to win. <strong>Cada kill le arranca territorio a tu rival — y cuanto más fuerte esté, más te llevás.</strong> Gana la facción que controle más mapa al cerrar la temporada.</p>
-      <button class="ipbox" type="button" data-copy="midtownmc.minehost.pro">
-        <span class="lbl">IP</span>
-        <span class="val">midtownmc.minehost.pro</span>
-        <span class="cp">Copiar</span>
-      </button>
+      <div class="hero-actions">
+        <button class="ipbox" type="button" data-copy="midtownmc.minehost.pro">
+          <span class="lbl">IP</span>
+          <span class="val">midtownmc.minehost.pro</span>
+          <span class="cp">Copiar</span>
+        </button>
+        <a class="btn primary" href="https://discord.gg/4XEnC7EmZv" target="_blank" rel="noopener">Entrar al Discord</a>
+      </div>
       <p class="meta">Servidor <span>cracked</span> — entrás con cualquier cuenta &nbsp;·&nbsp; Ping bajo en <span>Latinoamérica</span></p>
     </div>
   </div>
@@ -412,7 +428,7 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--line);letter-spacing
     <h2>La temporada<br>ya empezó</h2>
     <p>Entrá, armá tu facción y empezá a pelear por el mapa.</p>
     <div class="btns">
-      <a class="btn primary" href="https://discord.gg/5p5uX8Ktf">Entrar al Discord</a>
+      <a class="btn primary" href="https://discord.gg/4XEnC7EmZv" target="_blank" rel="noopener">Entrar al Discord</a>
       <button class="btn" type="button" data-copy="midtownmc.minehost.pro">IP: midtownmc.minehost.pro</button>
     </div>
   </div>
